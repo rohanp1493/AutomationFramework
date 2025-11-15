@@ -4,8 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BrowserUtility {
+public abstract class BrowserUtility {
 	
+	public WebDriver getDriver() {
+		return driver;
+	}
+
 	private WebDriver driver;
 	
 	public BrowserUtility(WebDriver driver) {
@@ -29,5 +33,10 @@ public class BrowserUtility {
 	public void enterText(By locator, String textToEnter) {
 		WebElement element = driver.findElement(locator);
 		element.sendKeys(textToEnter);
+	}
+	
+	public String getVisibleText(By locator) {
+		WebElement element = driver.findElement(locator);
+		return element.getText();
 	}
 }
