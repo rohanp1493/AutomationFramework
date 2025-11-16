@@ -1,15 +1,15 @@
 package com.ui.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
+import com.constants.Browser;
 import com.utility.BrowserUtility;
 
 public final class LandingPage extends BrowserUtility {
 	
 	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(), 'Sign in')]");
-	public LandingPage(WebDriver driver) {
-		super(driver); //To call Parent class constructor to child class constructor
+	public LandingPage(Browser browserName) {
+		super(browserName); //To call Parent class constructor to child class constructor
 		navigateToWebsite("https://automationpractice.techwithjatin.com/");
 	}
 	
