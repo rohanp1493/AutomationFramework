@@ -1,17 +1,25 @@
 package com.ui.tests;
 
 import static com.constants.Browser.*;
+
+import static org.testng.Assert.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import com.ui.pages.LandingPage;
 
 public class LoginTest {
-
-	public static void main(String[] args) {
+	
+		LandingPage landingPage;
 		
-		LandingPage landingPage =  new LandingPage(CHROME);
-		String userName = landingPage.goToLoginPage().peformLogin("fipad42714@pazard.com", "Admin@1234").getUserName();
-		System.out.println(userName);
-		
-		
+		@BeforeMethod(description ="Load the LandingPage of the Website ")
+		public void setUp() {
+			landingPage =  new LandingPage(CHROME);
+		}
+	
+		@Test(description = "Verify login using with valid login credentials", groups= {"e2e", "sanity"})
+		public void validLoginTest() {
+		assertEquals(landingPage.goToLoginPage().peformLogin("fipad42714@pazard.com", "Admin@1234").getUserName(), "Rohan Patil");
 	}
 
 }
