@@ -32,6 +32,12 @@ public class LoginTest {
 		assertEquals(landingPage.goToLoginPage().peformLogin(user.getEmail(), user.getPassword()).getUserName(), "Rohan Patil");
 	}
 		
+		@Test(description = "Verify login using with valid login credentials", groups= {"e2e", "sanity"}, 
+				dataProviderClass=com.ui.dataproviders.LoginDataProviders.class, dataProvider="LoginTestExcelDataProvider")
+		public void verifyoginTestExcel(User user) {
+		assertEquals(landingPage.goToLoginPage().peformLogin(user.getEmail(), user.getPassword()).getUserName(), "Rohan Patil");
+	}
+		
 		
 
 }
