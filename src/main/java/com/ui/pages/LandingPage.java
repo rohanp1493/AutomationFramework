@@ -14,7 +14,7 @@ public final class LandingPage extends BrowserUtility {
 	public LandingPage(Browser browserName) {
 		super(browserName); //To call Parent class constructor to child class constructor
 		//navigateToWebsite(PropertiesUtil.readProperties(QA, "URL"));
-		navigateToWebsite(JSONUtility.readJson(QA));
+		navigateToWebsite(JSONUtility.readJson(QA).getUrl());
 	}
 	
 	public LoginPage goToLoginPage() {

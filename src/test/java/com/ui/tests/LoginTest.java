@@ -33,7 +33,8 @@ public class LoginTest {
 	}
 		
 		@Test(description = "Verify login using with valid login credentials", groups= {"e2e", "sanity"}, 
-				dataProviderClass=com.ui.dataproviders.LoginDataProviders.class, dataProvider="LoginTestExcelDataProvider")
+				dataProviderClass=com.ui.dataproviders.LoginDataProviders.class, dataProvider="LoginTestExcelDataProvider",
+				retryAnalyzer=com.ui.listeners.MyRetryAnalyzer.class)
 		public void verifyoginTestExcel(User user) {
 		assertEquals(landingPage.goToLoginPage().peformLogin(user.getEmail(), user.getPassword()).getUserName(), "Rohan Patil");
 	}
