@@ -3,21 +3,23 @@ package com.ui.tests;
 import static com.constants.Browser.*;
 
 import static org.testng.Assert.*;
+
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.ui.pages.LandingPage;
 import com.ui.pojo.User;
 import com.utility.CSVReaderUtility;
+import com.utility.LoggerUtility;
 
-public class LoginTest {
+@Listeners({com.ui.listeners.TestListerner.class})
+public class LoginTest extends BaseTest {
 	
-		LandingPage landingPage;
 		
-		@BeforeMethod(description ="Load the LandingPage of the Website ")
-		public void setUp() {
-			landingPage =  new LandingPage(CHROME);
-		}
+		
+		
 	
 		@Test(description = "Verify login using with valid login credentials", groups= {"e2e", "sanity"}, 
 				dataProviderClass=com.ui.dataproviders.LoginDataProviders.class, dataProvider="LoginTestProvider")
