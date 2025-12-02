@@ -15,10 +15,9 @@ import com.utility.CSVReaderUtility;
 import com.utility.LoggerUtility;
 
 @Listeners({com.ui.listeners.TestListerner.class})
-public class LoginTest extends BaseTest {
+public class LoginTest extends BaseTest{
 	
-		
-		
+		Logger logger = LoggerUtility.getLogger(this.getClass());
 		
 	
 		@Test(description = "Verify login using with valid login credentials", groups= {"e2e", "sanity"}, 
@@ -38,7 +37,9 @@ public class LoginTest extends BaseTest {
 				dataProviderClass=com.ui.dataproviders.LoginDataProviders.class, dataProvider="LoginTestExcelDataProvider",
 				retryAnalyzer=com.ui.listeners.MyRetryAnalyzer.class)
 		public void verifyoginTestExcel(User user) {
+			logger.info("Started my login excel test");
 		assertEquals(landingPage.goToLoginPage().peformLogin(user.getEmail(), user.getPassword()).getUserName(), "Rohan Patil");
+		logger.info("login excel test completed");
 	}
 		
 		
