@@ -26,6 +26,12 @@ jobs:
       with:
           path: ~/.m2
           key: ${{ runner.os }}-maven
+
+    - name: Create settings-security.xml
+      run: |
+        mkdir -p ~/.m2
+        echo "<settingsSecurity><master>${{ secrets.MAVEN_MASTER_PASSWORD_ENC }}</master></settingsSecurity>" > ~/.m2/settings-security.xml
+
           
     - name: Running Test Automation Framework with Maven
       run: mvn test -X Dbrowser=chrome -DisLamdaTest=true -DisHeadless=false
