@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -63,10 +62,10 @@ jobs:
         cp - R screenshots/ public/extent-reports/screenshots/
         ls -l
 
-     - name: Deploy to GitHub Pages
-       if: alwayes()
-       uses: JamesIves/github-pages-deploy-action@v4.8.0
-       with:
+    - name: Deploy to GitHub Pages
+      if: always()
+      uses: JamesIves/github-pages-deploy-action@v4.8.0
+      with:
          folder: public/extent-reports/
          token: ${{ secrets.PATREPORTS }}
          clean: true
