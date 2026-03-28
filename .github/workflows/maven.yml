@@ -27,7 +27,7 @@ jobs:
           key: ${{ runner.os }}-maven{{ hashFiles('**/pom.xml') }}
           
     - name: Running Test Automation Framework with Maven
-      run: mvn test -X -Dbrowser=chrome -DisLamdaTest=false -DisHeadless=false
+      run: mvn test -X -Dbrowser=chrome -DisLamdaTest=false -DisHeadless=true
 
     - name: Upload Test Logs
       if: always()
