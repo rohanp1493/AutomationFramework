@@ -37,7 +37,7 @@ jobs:
         name: Test Logs
         path: logs/
 
-    - name: Upload Screenshots
+    - name: Upload Screenshots folder
       if: always()
       uses: actions/upload-artifact@v4
       with:
